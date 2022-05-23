@@ -12,9 +12,9 @@ from src.accelerated_graph_features.test_python_converter import create_graph
 from src.accelerated_graph_features.feature_wrappers import example_feature, clustering_coefficient, k_core, \
     node_page_rank, bfs_moments, motif, attraction_basin, flow
 
-from graph_measures.loggers import PrintLogger
+from graphMeasures.loggers import PrintLogger
 import numpy as np
-from graph_measures.features_algorithms.vertices.motifs import MotifsNodeCalculator
+from graphMeasures.features_algorithms.vertices.motifs import MotifsNodeCalculator
 
 import networkx as nx
 

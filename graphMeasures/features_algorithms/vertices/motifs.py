@@ -8,7 +8,7 @@ import numpy as np
 from bitstring import BitArray
 
 try:
-    from graph_measures.features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
+    from graphMeasures.features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
 except ModuleNotFoundError as e:
     from features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
 

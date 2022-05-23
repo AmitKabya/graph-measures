@@ -9,7 +9,7 @@ import numpy as np
 from scipy.stats import zscore
 
 try:
-    from graph_measures.loggers import EmptyLogger
+    from graphMeasures.loggers import EmptyLogger
 except Exception as e:
     from loggers import EmptyLogger
 

@@ -3,13 +3,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='graph-measures',
-    version='0.1.1',
+    version='0.1.2',
     license='GPL',
     maintainer="Amit Kabya",
     author="Itay Levinas, Roy Sh",
     author_email='kabya.amit@gmail.com',
-    packages=find_packages('graph-measures'),
-    package_dir={'': 'graph-measures'},
+    packages=find_packages('graphMeasures'),
+    package_dir={'': 'graphMeasures'},
     url='https://github.com/louzounlab/graph-measures',
     description='A python package for calculating topological graph features on cpu/gpu',
     keywords='gpu graph topological-features-calculator',
