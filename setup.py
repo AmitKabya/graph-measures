@@ -8,9 +8,10 @@ setup(
     maintainer="Amit Kabya",
     author="Itay Levinas, Roy Sh",
     author_email='kabya.amit@gmail.com',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=find_packages('../graph-measures'),
+    package_dir={'': 'graph-measures'},
     url='https://github.com/louzounlab/graph-measures',
+    description='A python package for calculating topological graph features on cpu/gpu',
     keywords='gpu graph topological features calculator',
     install_requires=[
         "setuptools~=61.3.1",
