@@ -1,4 +1,5 @@
 graft src
+graft src/graphMeasures
 graft src/graphMeasures/dockers
 graft src/graphMeasures/features_algorithms
 graft src/graphMeasures/features_algorithms/accelerated_graph_features
