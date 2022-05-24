@@ -74,10 +74,10 @@ class FeatureCalculator:
 
     def _get_feature_meta(self, features, acc):
         if acc:
-            from accelerated_features_meta import FeaturesMeta
+            from features_meta.accelerated_features_meta import FeaturesMeta
             features_meta_kwargs = dict(gpu=self._gpu, device=self._device)
         else:
-            from features_meta import FeaturesMeta
+            from features_meta.features_meta import FeaturesMeta
             features_meta_kwargs = dict()
 
         all_node_features = FeaturesMeta(**features_meta_kwargs).NODE_LEVEL
@@ -215,9 +215,9 @@ if __name__ == "__main__":
     #           ["average_neighbor_degree", "betweenness_centrality", "bfs_moments",
     #              "closeness_centrality", "eccentricity", "fiedler_vector", "k_core",
     #              "load_centrality", "louvain", "motif3", "motif4", "degree",
-    #              "eigenvector_centrality", "clustering_coefficient", "page_rank"
+    #              "eigenvector_centrality", "clustering_coefficient", "page_rank",
     #              "square_clustering_coefficient", "generalized_degree", "general",
-    #              "all_pairs_shortest_path_length", "attractor_basin", "flow"]
+    #              "attractor_basin", "flow"]
     feats = ["louvain", "eigenvector_centrality", "clustering_coefficient"]
 
     ftr_calc = FeatureCalculator("edges.txt", os.path.join("try"),
