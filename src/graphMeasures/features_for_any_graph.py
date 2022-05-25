@@ -10,12 +10,12 @@ from graph_features import GraphFeatures
 
 
 class FeatureCalculator:
-    def __init__(self, edge_path, dir_path, features, acc=True, directed=False, gpu=False, device=2, verbose=True,
+    def __init__(self, graph, dir_path, features, acc=True, directed=False, gpu=False, device=2, verbose=True,
                  params=None):
         """
         A class used to calculate features for a given graph, input as a text-like file.
 
-        :param edge_path: str
+        :param graph: str|nx.Graph|nx.DiGraph
         Path to graph edges file (text-like file, e.g. txt or csv), from which the graph is built using networkx.
         The graph must be unweighted. If its vertices are not [0, 1, ..., n-1], they are mapped to become
         [0, 1, ..., n-1] and the mapping is saved.
@@ -51,15 +51,26 @@ class FeatureCalculator:
                                      FileLogger("FLogger", path=dir_path, level=logging.INFO)], name=None) \
             if verbose else None
         self._params = params
-        self._load_graph(edge_path, directed)
+        self._load_graph(graph, directed)
         self._get_feature_meta(features, acc)  # acc determines whether to use the accelerated features
 
         self._adj_matrix = None
         self._raw_features = None
         self._other_features = None
 
-    def _load_graph(self, edge_path, directed=False):
-        self._graph = nx.read_edgelist(edge_path, delimiter=',', create_using=nx.DiGraph() if directed else nx.Graph())
+    def _load_graph(self, graph, directed=False):
+        if type(graph) is str:
+            self._graph = nx.read_edgelist(graph, delimiter=',', create_using=nx.DiGraph() if directed else nx.Graph())
+        elif type(graph) is nx.Graph or type(graph) is nx.DiGraph:
+            if type(graph) is nx.Graph and directed:
+                self._graph = nx.to_directed(graph.copy())
+            elif type(graph) is nx.DiGraph and not directed:
+                self._graph = nx.to_undirected(graph.copy())
+            else:
+                self._graph = graph.copy()
+        else:
+            raise ValueError("Graph must be path to edgelist, nx.Graph or nx.DiGraph")
+
         vertices = np.array(self._graph.nodes)
         should_be_vertices = np.arange(len(vertices))
         self._mapping = {i: v for i, v in enumerate(self._graph)}
