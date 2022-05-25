@@ -11,3 +11,5 @@ recursive-include src *.png
 recursive-include src *.py
 recursive-include src *.txt
 recursive-include src *.yml
+recursive-include src makefile
+recursive-include src Makefile*

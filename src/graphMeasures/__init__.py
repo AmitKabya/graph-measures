@@ -1,11 +1,5 @@
 import os
 import sys
-import features_algorithms
-# from features_algorithms import accelerated_graph_features
-from features_algorithms import vertices
-import features_infra
-import graph_infra
-import features_meta
 
 for path_name in [os.path.join(os.path.dirname(__file__)),
                   os.path.join(os.path.dirname(__file__), 'features_algorithms'),
