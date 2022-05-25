@@ -10,3 +10,5 @@ for path_name in [os.path.join(os.path.dirname(__file__)),
                   os.path.join(os.path.dirname(__file__), 'features_meta')
                   ]:
     sys.path.append(path_name)
+
+from features_for_any_graph import FeatureCalculator
