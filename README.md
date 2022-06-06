@@ -40,7 +40,18 @@ Some more information regarding the features can be found in the files of [featu
 
 **NOTE:** For codes relating the motifs and their calculations, one might need to create the motif variation pickle files
 in _features_algorithms/motif_variations_. To do so, one needs to run [isomorphic.py](features_algorithms/motif_variations/isomorphic.py). 
-   
+
+## Requirements
+```python
+networkx>=2.8
+pandas>=1.4.2
+numpy>=1.22.3
+matplotlib>=3.5.1
+scipy>=1.8.0
+scikit-learn>=1.0.2
+python-louvain>=0.16
+bitstring>=3.1.9
+```
  
 ## Calculating Features
 
