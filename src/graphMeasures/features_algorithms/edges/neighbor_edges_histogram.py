@@ -3,8 +3,8 @@ from itertools import product as cartesian
 import networkx as nx
 import numpy as np
 
-from features_infra.feature_calculators import EdgeFeatureCalculator
-from loggers import PrintLogger
+from ...features_infra.feature_calculators import EdgeFeatureCalculator
+from ...loggers import PrintLogger
 
 
 # Python 2, 3 compatible metaclass

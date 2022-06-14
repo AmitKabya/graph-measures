@@ -4,7 +4,7 @@ import functools
 import pandas as pd
 import networkx as nx
 
-from loggers import EmptyLogger
+from ..loggers import EmptyLogger
 
 
 class TestData:

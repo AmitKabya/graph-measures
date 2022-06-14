@@ -2,7 +2,7 @@ import networkx as nx
 import numpy as np
 from sklearn.manifold import Isomap
 
-from features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
+from ...features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
 
 
 MAX_DEGREE = 5
@@ -35,8 +35,8 @@ feature_entry = {
 
 
 def test_feature():
-    from loggers import PrintLogger
-    from measure_tests.test_graph import get_graph
+    from ...loggers import PrintLogger
+    from ...measure_tests.test_graph import get_graph
     gnx = get_graph()
     feat = MultiDimensionalScalingCalculator(gnx, logger=PrintLogger("Keren's Logger"))
     res = feat.build()

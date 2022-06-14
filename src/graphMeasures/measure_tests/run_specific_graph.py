@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import networkx as nx
-from loggers import PrintLogger
-from features_algorithms.vertices.motifs import MotifsNodeCalculator
+from ..loggers import PrintLogger
+from ..features_algorithms.vertices.motifs import MotifsNodeCalculator
 
 logger = PrintLogger("MyLogger")
 

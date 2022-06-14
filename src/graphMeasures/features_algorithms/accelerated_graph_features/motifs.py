@@ -10,8 +10,8 @@ sys.path.append(os.path.abspath('src/accelerated_graph_features'))
 from functools import partial
 
 import numpy as np
-from features_algorithms.accelerated_graph_features.src import motif
-from features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
+from .src import motif
+from ...features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
 
 CUR_PATH = os.path.realpath(__file__)
 BASE_PATH = os.path.dirname(os.path.dirname(CUR_PATH))

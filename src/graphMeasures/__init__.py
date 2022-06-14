@@ -11,4 +11,4 @@ for path_name in [os.path.join(os.path.dirname(__file__)),
                   ]:
     sys.path.append(path_name)
 
-from features_for_any_graph import FeatureCalculator
+from .features_for_any_graph import FeatureCalculator

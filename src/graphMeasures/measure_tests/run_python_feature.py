@@ -1,8 +1,8 @@
 import networkx as nx
-from loggers import PrintLogger
+from ..loggers import PrintLogger
 import numpy as np
-from features_algorithms.vertices.flow import FlowCalculator
-from features_algorithms.vertices.motifs import MotifsNodeCalculator
+from ..features_algorithms.vertices.flow import FlowCalculator
+from ..features_algorithms.vertices.motifs import MotifsNodeCalculator
 import os
 import matplotlib.pyplot as plt
 

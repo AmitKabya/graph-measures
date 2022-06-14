@@ -1,6 +1,6 @@
 import networkx as nx
 
-from graph_infra.union_graph import UnionGraph, GraphNode
+from .union_graph import UnionGraph, GraphNode
 
 
 class AttrMultiDiGraph(UnionGraph):

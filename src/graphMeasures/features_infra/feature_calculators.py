@@ -2,16 +2,10 @@ import re
 from collections import namedtuple
 from datetime import datetime
 from itertools import chain
-
 import networkx as nx
 import numpy as np
-
 from scipy.stats import zscore
-
-try:
-    from graphMeasures.loggers import EmptyLogger
-except Exception as e:
-    from loggers import EmptyLogger
+from ..loggers import EmptyLogger
 
 
 # Old zscore code.. should use scipy.stats.zscore

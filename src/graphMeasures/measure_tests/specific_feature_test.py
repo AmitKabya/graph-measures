@@ -3,8 +3,8 @@ import numpy as np
 
 import networkx as nx
 
-from loggers import EmptyLogger
-from measure_tests.test_graph import TestData, get_di_graph, get_graph
+from ..loggers import EmptyLogger
+from .test_graph import TestData, get_di_graph, get_graph
 
 iterable_types = (list, tuple)
 num_types = (int, float, np.int8, np.int16, np.int32, np.int64, np.float16, np.float32, np.float64)

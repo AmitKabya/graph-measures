@@ -1,24 +1,24 @@
 import unittest
 
-from features_algorithms.vertices.betweenness_centrality import BetweennessCentralityCalculator
-from features_algorithms.vertices.closeness_centrality import ClosenessCentralityCalculator
-from features_algorithms.vertices.communicability_betweenness_centrality import \
+from ..features_algorithms.vertices.betweenness_centrality import BetweennessCentralityCalculator
+from ..features_algorithms.vertices.closeness_centrality import ClosenessCentralityCalculator
+from ..features_algorithms.vertices.communicability_betweenness_centrality import \
     CommunicabilityBetweennessCentralityCalculator
-from features_algorithms.vertices.eccentricity import EccentricityCalculator
-from features_algorithms.vertices.fiedler_vector import FiedlerVectorCalculator
-from features_algorithms.vertices.flow import FlowCalculator
-from features_algorithms.vertices.general import GeneralCalculator
-from features_algorithms.vertices.hierarchy_energy import HierarchyEnergyCalculator
-from features_algorithms.vertices.k_core import KCoreCalculator
-from features_algorithms.vertices.load_centrality import LoadCentralityCalculator
-from features_algorithms.vertices.louvain import LouvainCalculator
-from features_algorithms.vertices.motifs import nth_edges_motif
-from features_algorithms.vertices.page_rank import PageRankCalculator
-from measure_tests.specific_feature_test import SpecificFeatureTest
-from features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
-from features_algorithms.vertices.average_neighbor_degree import AverageNeighborDegreeCalculator
-from features_algorithms.vertices.bfs_moments import BfsMomentsCalculator
-from loggers import PrintLogger
+from ..features_algorithms.vertices.eccentricity import EccentricityCalculator
+from ..features_algorithms.vertices.fiedler_vector import FiedlerVectorCalculator
+from ..features_algorithms.vertices.flow import FlowCalculator
+from ..features_algorithms.vertices.general import GeneralCalculator
+from ..features_algorithms.vertices.hierarchy_energy import HierarchyEnergyCalculator
+from ..features_algorithms.vertices.k_core import KCoreCalculator
+from ..features_algorithms.vertices.load_centrality import LoadCentralityCalculator
+from ..features_algorithms.vertices.louvain import LouvainCalculator
+from ..features_algorithms.vertices.motifs import nth_edges_motif
+from ..features_algorithms.vertices.page_rank import PageRankCalculator
+from .specific_feature_test import SpecificFeatureTest
+from ..features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
+from ..features_algorithms.vertices.average_neighbor_degree import AverageNeighborDegreeCalculator
+from ..features_algorithms.vertices.bfs_moments import BfsMomentsCalculator
+from ..loggers import PrintLogger
 
 
 class FeatureTests(SpecificFeatureTest):

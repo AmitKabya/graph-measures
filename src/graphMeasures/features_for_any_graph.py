@@ -6,7 +6,7 @@ import logging
 import __init__
 from loggers import PrintLogger, FileLogger, multi_logger
 import os
-from graph_features import GraphFeatures
+from .features_infra.graph_features import GraphFeatures
 
 
 class FeatureCalculator:

@@ -1,30 +1,30 @@
-from features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
-from features_algorithms.vertices.average_neighbor_degree import AverageNeighborDegreeCalculator
-from features_algorithms.vertices.betweenness_centrality import BetweennessCentralityCalculator
-from features_algorithms.vertices.bfs_moments import BfsMomentsCalculator
-from features_algorithms.vertices.closeness_centrality import ClosenessCentralityCalculator
-from features_algorithms.vertices.communicability_betweenness_centrality import \
+from ..features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
+from ..features_algorithms.vertices.average_neighbor_degree import AverageNeighborDegreeCalculator
+from ..features_algorithms.vertices.betweenness_centrality import BetweennessCentralityCalculator
+from ..features_algorithms.vertices.bfs_moments import BfsMomentsCalculator
+from ..features_algorithms.vertices.closeness_centrality import ClosenessCentralityCalculator
+from ..features_algorithms.vertices.communicability_betweenness_centrality import \
     CommunicabilityBetweennessCentralityCalculator
-from features_algorithms.vertices.eccentricity import EccentricityCalculator
-from features_algorithms.vertices.fiedler_vector import FiedlerVectorCalculator
-from features_algorithms.vertices.flow import FlowCalculator
-from features_algorithms.vertices.general import GeneralCalculator
-from features_algorithms.vertices.hierarchy_energy import HierarchyEnergyCalculator
-from features_algorithms.vertices.k_core import KCoreCalculator
-from features_algorithms.vertices.load_centrality import LoadCentralityCalculator
-from features_algorithms.vertices.louvain import LouvainCalculator
-# from features_algorithms.vertices.neighbor_nodes_histogram import nth_neighbor_calculator
-from features_algorithms.vertices.motifs import nth_nodes_motif
-from features_algorithms.vertices.page_rank import PageRankCalculator
-from features_infra.feature_calculators import FeatureMeta, FeatureCalculator
+from ..features_algorithms.vertices.eccentricity import EccentricityCalculator
+from ..features_algorithms.vertices.fiedler_vector import FiedlerVectorCalculator
+from ..features_algorithms.vertices.flow import FlowCalculator
+from ..features_algorithms.vertices.general import GeneralCalculator
+from ..features_algorithms.vertices.hierarchy_energy import HierarchyEnergyCalculator
+from ..features_algorithms.vertices.k_core import KCoreCalculator
+from ..features_algorithms.vertices.load_centrality import LoadCentralityCalculator
+from ..features_algorithms.vertices.louvain import LouvainCalculator
+# from ..features_algorithms.vertices.neighbor_nodes_histogram import nth_neighbor_calculator
+from ..features_algorithms.vertices.motifs import nth_nodes_motif
+from ..features_algorithms.vertices.page_rank import PageRankCalculator
+from ..features_infra.feature_calculators import FeatureMeta, FeatureCalculator
 
 # new
-from features_algorithms.vertices.eigenvector_centrality import EigenvectorCentralityCalculator
-from features_algorithms.vertices.clustering_coefficient import ClusteringCoefficientCalculator
-from features_algorithms.vertices.square_clustering_coefficient import SquareClusteringCoefficientCalculator
-from features_algorithms.vertices.generalized_degree import GeneralizedDegreeCalculator
-from features_algorithms.vertices.all_pairs_shortest_path_length import AllPairsShortestPathLengthCalculator
-from features_algorithms.vertices.all_pairs_shortest_path import AllPairsShortestPathCalculator
+from ..features_algorithms.vertices.eigenvector_centrality import EigenvectorCentralityCalculator
+from ..features_algorithms.vertices.clustering_coefficient import ClusteringCoefficientCalculator
+from ..features_algorithms.vertices.square_clustering_coefficient import SquareClusteringCoefficientCalculator
+from ..features_algorithms.vertices.generalized_degree import GeneralizedDegreeCalculator
+from ..features_algorithms.vertices.all_pairs_shortest_path_length import AllPairsShortestPathLengthCalculator
+from ..features_algorithms.vertices.all_pairs_shortest_path import AllPairsShortestPathCalculator
 
 
 class FeaturesMeta:

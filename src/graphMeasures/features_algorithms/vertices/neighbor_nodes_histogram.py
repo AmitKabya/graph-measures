@@ -10,8 +10,8 @@ import numpy as np
 # with_metaclass(SingletonName, object)
 from scipy import sparse
 
-from graphMeasures.features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
-from graphMeasures.loggers import PrintLogger
+from ...features_infra.feature_calculators import NodeFeatureCalculator, FeatureMeta
+from ...loggers import PrintLogger
 
 from datetime import datetime
 

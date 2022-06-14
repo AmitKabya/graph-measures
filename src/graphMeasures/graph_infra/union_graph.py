@@ -1,5 +1,4 @@
 import networkx as nx
-
 from future.utils import with_metaclass
 
 

@@ -3,8 +3,8 @@ import pickle
 
 from multiprocessing import Process, Queue
 
-from features_infra.feature_calculators import FeatureCalculator
-from loggers import PrintLogger, EmptyLogger
+from ..features_infra.feature_calculators import FeatureCalculator
+from ..loggers import PrintLogger, EmptyLogger
 
 import networkx as nx
 import numpy as np
@@ -38,6 +38,7 @@ class GraphFeatures(dict):
         self._base_dir = dir_path
         self._logger = EmptyLogger() if logger is None else logger
         self._matrix = None
+        self.is_build = False
 
         if is_max_connected:
             if gnx.is_directed():
@@ -102,6 +103,8 @@ class GraphFeatures(dict):
         # Joining all workers
         for worker in workers:
             worker.join()
+
+        self.is_build = True
 
     def _load_feature(self, name):
         if self._gnx is None:
@@ -237,10 +240,3 @@ class GraphFeatures(dict):
 #         if entries_order is None:
 #             entries_order = sorted(self._gnx.edges())
 #         return super(GraphEdgeFeatures, self).sparse_matrix(entries_order=entries_order, **kwargs)
-
-
-if __name__ == "__main__":
-    from feature_meta import ALL_FEATURES
-
-    ftrs = GraphFeatures(nx.DiGraph(), ALL_FEATURES)
-    print("Bla")

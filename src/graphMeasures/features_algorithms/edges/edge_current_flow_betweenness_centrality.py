@@ -1,6 +1,6 @@
 import networkx as nx
 
-from features_infra.feature_calculators import EdgeFeatureCalculator, FeatureMeta
+from ...features_infra.feature_calculators import EdgeFeatureCalculator, FeatureMeta
 
 
 class EdgeCurrentFlowCalculator(EdgeFeatureCalculator):
