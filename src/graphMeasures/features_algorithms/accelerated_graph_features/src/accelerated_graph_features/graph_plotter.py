@@ -2,12 +2,12 @@ import sys
 import os
 
 # Leave the path changes here!!!
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 import networkx as nx
 import matplotlib.pyplot as plt
-from src.accelerated_graph_features.test_python_converter import create_graph
+from .test_python_converter import create_graph
 
 N = 3
 

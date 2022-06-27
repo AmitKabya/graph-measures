@@ -13,7 +13,7 @@ from ..features_algorithms.vertices.hierarchy_energy import HierarchyEnergyCalcu
 from ..features_algorithms.vertices.k_core import KCoreCalculator
 from ..features_algorithms.vertices.load_centrality import LoadCentralityCalculator
 from ..features_algorithms.vertices.louvain import LouvainCalculator
-# from ..features_algorithms.vertices.neighbor_nodes_histogram import nth_neighbor_calculator
+# from features_algorithms.vertices.neighbor_nodes_histogram import nth_neighbor_calculator
 from ..features_algorithms.vertices.motifs import nth_nodes_motif
 from ..features_algorithms.vertices.page_rank import PageRankCalculator
 from ..features_infra.feature_calculators import FeatureMeta, FeatureCalculator

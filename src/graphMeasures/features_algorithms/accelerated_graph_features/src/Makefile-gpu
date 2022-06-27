@@ -51,6 +51,7 @@ FEATURE = ExampleFeatureCalculator
 WRAPPER = ExampleWrapper
 
 OUTPUT_NAME = _features
+# OUTPUT_NAME = features
 
 CACHE_GRAPH = CacheGraph
 CONVERTER = ConvertedGNXReciever

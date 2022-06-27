@@ -7,8 +7,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # LEAVE THE PATH CHANGES HERE!!!
-sys.path.append(os.path.abspath('..'))
-sys.path.append(os.path.abspath('../..'))
+# sys.path.append(os.path.abspath('..'))
+# sys.path.append(os.path.abspath('../..'))
 CUR_PATH = os.path.realpath(__file__)
 BASE_PATH = os.path.dirname(os.path.dirname(CUR_PATH))
 VERBOSE = True

@@ -1,6 +1,8 @@
 include *.txt
 include *.yml
 include LICENSE
+recursive-include src *.so
+recursive-include src *.o
 recursive-include src *.cpp
 recursive-include src *.csv
 recursive-include src *.edgelist

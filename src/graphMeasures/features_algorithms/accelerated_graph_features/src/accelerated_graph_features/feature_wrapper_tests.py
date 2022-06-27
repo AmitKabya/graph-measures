@@ -2,19 +2,19 @@ import sys
 import os
 
 # Leave the path changes here!!!
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..','..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..','..','..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..','..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..','..','..','..'))
 
 from src.accelerated_graph_features.test_python_converter import create_graph
 from src.accelerated_graph_features.feature_wrappers import example_feature, clustering_coefficient, k_core, \
     node_page_rank, bfs_moments, motif, attraction_basin, flow
 
-from graphMeasures.loggers import PrintLogger
+from .....loggers import PrintLogger
 import numpy as np
-from graphMeasures.features_algorithms.vertices.motifs import MotifsNodeCalculator
+from ....vertices.motifs import MotifsNodeCalculator
 
 import networkx as nx
 

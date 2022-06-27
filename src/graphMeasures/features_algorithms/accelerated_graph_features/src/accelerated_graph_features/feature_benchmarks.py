@@ -2,19 +2,19 @@ import sys
 import os
 
 # Leave the path changes here!!!
-sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'graph_measures'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), 'graph_measures'))
 
-from src.accelerated_graph_features.feature_wrappers import clustering_coefficient, k_core, node_page_rank, bfs_moments, \
+from .feature_wrappers import clustering_coefficient, k_core, node_page_rank, bfs_moments, \
     motif, attraction_basin, flow
-from src.accelerated_graph_features.graph_timer import FeatureTimer
-from src.accelerated_graph_features.original_features_check import original_bfs_moments
+from .graph_timer import FeatureTimer
+from .original_features_check import original_bfs_moments
 # from Git.graph_measures.cpp_comparison import compare_motifs
-from features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
-from features_algorithms.vertices.flow import FlowCalculator
+# from features_algorithms.vertices.attractor_basin import AttractorBasinCalculator
+# from features_algorithms.vertices.flow import FlowCalculator
 import networkx as nx
 
 matching_python_functions = {

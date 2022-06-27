@@ -1,6 +1,6 @@
 import numpy as np
 
-from ..vertices.general import GeneralCalculator
+from ...features_algorithms.vertices.general import GeneralCalculator
 from ...features_infra.feature_calculators import EdgeFeatureCalculator, FeatureMeta
 
 

@@ -3,15 +3,15 @@ import sys
 import networkx as nx
 import pickle
 
-sys.path.append(os.path.abspath('.'))
-sys.path.append(os.path.abspath('..'))
-sys.path.append(os.path.abspath('../..'))
+# sys.path.append(os.path.abspath('.'))
+# sys.path.append(os.path.abspath('..'))
+# sys.path.append(os.path.abspath('../..'))
 
-from src.accelerated_graph_features.feature_wrappers import motif
+from .feature_wrappers import motif
 
 FEATURES = {
-    'Motif3': lambda g: motif(g, level=3,gpu=False),
-    'Motif4': lambda g: motif(g, level=4,gpu=False)
+    'Motif3': lambda g: motif(g, level=3, gpu=False),
+    'Motif4': lambda g: motif(g, level=4, gpu=False)
 }
 
 
@@ -26,5 +26,3 @@ def calculate_features_on_graph(file_name, feats):
         with open(save_file_name.format(k), 'w+b') as fp:
             pickle.dump(res, fp)
         del res
-
-

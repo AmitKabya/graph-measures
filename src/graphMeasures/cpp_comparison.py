@@ -1,15 +1,15 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath('..'))
-sys.path.append(os.path.abspath('../..'))
+# sys.path.append(os.path.abspath('..'))
+# sys.path.append(os.path.abspath('../..'))
 
 
 import networkx as nx
 from loggers import PrintLogger
 from pprint import pprint
 
-from features_algorithms.vertices.motifs import MotifsNodeCalculator
+from .features_algorithms.vertices.motifs import MotifsNodeCalculator
 
 logger = PrintLogger("Logger")
 

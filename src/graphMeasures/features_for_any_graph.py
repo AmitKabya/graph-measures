@@ -3,8 +3,7 @@ import networkx as nx
 import numpy as np
 import pickle
 import logging
-import __init__
-from loggers import PrintLogger, FileLogger, multi_logger
+from .loggers import PrintLogger, FileLogger, multi_logger
 import os
 from .features_infra.graph_features import GraphFeatures
 
@@ -85,10 +84,10 @@ class FeatureCalculator:
 
     def _get_feature_meta(self, features, acc):
         if acc:
-            from features_meta.accelerated_features_meta import FeaturesMeta
+            from .features_meta.accelerated_features_meta import FeaturesMeta
             features_meta_kwargs = dict(gpu=self._gpu, device=self._device)
         else:
-            from features_meta.features_meta import FeaturesMeta
+            from .features_meta.features_meta import FeaturesMeta
             features_meta_kwargs = dict()
 
         all_node_features = FeaturesMeta(**features_meta_kwargs).NODE_LEVEL
@@ -179,7 +178,7 @@ class OtherFeatures:
         return np.array([d[1] for d in degrees]).reshape(-1, 1)
 
     def _calc_additional_features(self):
-        from additional_features import AdditionalFeatures
+        from .additional_features import AdditionalFeatures
         if self._params is None:
             raise ValueError("params is None")
         if not os.path.exists(os.path.join(self._dir_path, "motif3.pkl")):

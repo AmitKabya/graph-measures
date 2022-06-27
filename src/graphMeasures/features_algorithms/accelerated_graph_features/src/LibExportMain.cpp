@@ -33,7 +33,7 @@ void test_export(){
 	std::cout << "Hello Test!"<<std::endl;
 }
 
-BOOST_PYTHON_MODULE(_features)
+BOOST_PYTHON_MODULE(features)
 {
 
 	def("test",test_export);
@@ -53,4 +53,3 @@ BOOST_PYTHON_MODULE(_features)
 	BoostDefGPUMotifCalculator();
 #endif
 }
-
