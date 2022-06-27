@@ -1,19 +1,16 @@
 # Topological Graph Features
 
 Topological feature calculators infrastructure.
-****
 
 ## Calculating Features
 This package helps one to calculate features for a given graph. All features are implemented in python codes, 
 and some features have also an accelerated version written in C++. Among the accelerated features, one can find 
 a code for calculating 3- and 4-motifs using VDMC, a distributed algorithm to calculate 3- and 4-motifs in a 
 GPU-parallelized way.
-****
 
 ## Versions
 - Last version: 0.1.36
 - Last stable version: 0.1.22
-****
 
 ## What Features Can Be Calculated Here?
 The set of all vertex features implemented in graph-measures is the following. 
@@ -44,7 +41,6 @@ in its community)
 
 Aside from those, there are some other [edge features](src/graphMeasures/features_algorithms/edges).
 Some more information regarding the features can be found in the files of [features_meta](src/graphMeasures/features_meta).
-****
 
 ## Dependencies
 ```requirements.txt
@@ -60,7 +56,6 @@ bitstring
 future
 torch
 ```
- ****
 
 ## Installation Through pip
 The full functionality of the package is currently available on a Linux machine, with a Conda environment.
@@ -70,13 +65,11 @@ The full functionality of the package is currently available on a Linux machine,
 pip install graph-measures
 ```
 **Note:** On Linux+Conda the installation might take longer (about 5-10 minuets) due to the compilation of the c++ files.
-****
 ## How To Use?
 Even though one has installed the package as `graph-measures`, The package should be imported from the code as `graphMesaures`. Hence, use:
 ```python
 import graphMeasures
 ```
-****
 ## Calculating Features
 
 There are two main methods to calculate features:
