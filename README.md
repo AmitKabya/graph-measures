@@ -9,7 +9,7 @@ a code for calculating 3- and 4-motifs using VDMC, a distributed algorithm to ca
 GPU-parallelized way.
 
 ## Versions
-- Last version: 0.1.35
+- Last version: 0.1.38
 - Last stable version: 0.1.22
 
 ## What Features Can Be Calculated Here?

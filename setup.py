@@ -10,19 +10,11 @@ WORKING_DIR = os.getcwd()
 
 class Build(build_ext):
     """Customized setuptools build command - builds protos on build."""
+
     def run(self):
         run_makefile()
         os.chdir(WORKING_DIR)
         build_ext.run(self)
-
-
-def boost_env_prefix(conda_prefix):
-    split_path = list(os.path.split(conda_prefix))
-    if split_path[-2] == "envs" and "conda" in split_path[-3]:
-        split_path[-1] = "boost"
-    elif "conda" in split_path[-1]:
-        split_path += ["envs", "boost"]
-    return "/" + "/".join(split_path)
 
 
 def makefile_command(gpu: bool):
@@ -54,7 +46,14 @@ def run_makefile():
         print("cd ed")
         os.system("conda env create -f env.yml --force")
         print("created conda env")
-        cmd = '. ' + CONDA_PREFIX + '/etc/profile.d/conda.sh && conda activate boost'
+
+        def conda_base():
+            split_path = list(os.path.split(CONDA_PREFIX))
+            while "conda" not in split_path[-1]:
+                split_path = list(os.path.split(split_path[0]))
+            return "/".join(split_path)
+
+        cmd = '. ' + conda_base() + '/etc/profile.d/conda.sh && conda activate boost'
         print(cmd)
         subprocess.call(cmd, shell=True, executable='/bin/bash')
         print("did subprocess thingy")
@@ -88,7 +87,7 @@ if __name__ == '__main__':
 
     setup(
         name="graph-measures",
-        version="0.1.35",
+        version="0.1.38",
         license="GPL",
         maintainer="Amit Kabya",
         author="Itay Levinas",
@@ -115,7 +114,6 @@ if __name__ == '__main__':
             'Programming Language :: C++',
             'Operating System :: Unix',
             'Operating System :: POSIX :: Linux',
-
         ],
         easy_install="ok_zip"
     )
