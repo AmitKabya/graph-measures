@@ -2,20 +2,33 @@ import os
 import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.build_ext import build_ext
+from setuptools.command.install import install
 
 TORCH_VERSION = '1.11.0'
 CONDA_PREFIX = os.environ.get("CONDA_PREFIX", None)
 WORKING_DIR = os.getcwd()
 
 
+#############################################################
 class Build(build_ext):
     """Customized setuptools build command - builds protos on build."""
 
     def run(self):
         run_makefile()
         os.chdir(WORKING_DIR)
+        self.inplace = 1
         build_ext.run(self)
 
+
+#############################################################
+class Install(install):
+    def run(self):
+        run_makefile()
+        os.chdir(WORKING_DIR)
+        install.run(self)
+
+
+#############################################################
 
 def makefile_command(gpu: bool):
     if not gpu:
@@ -87,7 +100,7 @@ if __name__ == '__main__':
 
     setup(
         name="graph-measures",
-        version="0.1.38",
+        version="0.1.43",
         license="GPL",
         maintainer="Amit Kabya",
         author="Itay Levinas",
@@ -108,6 +121,7 @@ if __name__ == '__main__':
         package_dir={"": "src"},
         cmdclass={
             'build_ext': Build
+            # 'install': Install,
         },
         classifiers=[
             'Programming Language :: Python',

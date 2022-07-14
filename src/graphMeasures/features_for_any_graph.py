@@ -9,7 +9,7 @@ from .features_infra.graph_features import GraphFeatures
 
 
 class FeatureCalculator:
-    def __init__(self, graph, dir_path, features, acc=True, directed=False, gpu=False, device=2, verbose=True,
+    def __init__(self, graph, features, dir_path="", acc=True, directed=False, gpu=False, device=2, verbose=True,
                  params=None):
         """
         A class used to calculate features for a given graph, input as a text-like file.
@@ -19,10 +19,10 @@ class FeatureCalculator:
         The graph must be unweighted. If its vertices are not [0, 1, ..., n-1], they are mapped to become
         [0, 1, ..., n-1] and the mapping is saved.
         Every row in the edges file should include "source_id,distance_id", without a header row.
-        :param dir_path: str
-        Path to the directory in which the feature calculations will be (or already are) located.
         :param features: list of strings
         List of the names of each feature. Could be any name from features_meta.py or "additional_features".
+        :param dir_path: str
+        Path to the directory in which the feature calculations will be (or already are) located.
         :param acc: bool
         Whether to run the accelerated features, assuming it is possible to do so.
         :param directed: bool
@@ -104,8 +104,10 @@ class FeatureCalculator:
             else:
                 self._features[key] = all_node_features[key]
 
-    def calculate_features(self, dumping_specs=None):
+    def calculate_features(self, should_dump=True, dumping_specs=None):
         """
+        :param should_dump: A boolean flag. If True the feature will be dumped and saved.
+                            Otherwise, the features will not be saved.
         :param dumping_specs: A dictionary of specifications how to dump the non-special features.
                               The default is saving the class only (as a pickle file).
                               'object': What to save - either 'class' (save the calculator with the features inside),
@@ -133,10 +135,10 @@ class FeatureCalculator:
                         dumping_specs['vertex_names'] = self._mapping
                     else:
                         del dumping_specs['vertex_names']
-            self._raw_features.build(should_dump=True, dumping_specs=dumping_specs)
+            self._raw_features.build(should_dump=should_dump, dumping_specs=dumping_specs)
             self._other_features = OtherFeatures(self._graph, self._special_features, self._dir_path, self._params,
                                                  self._logger)
-            self._other_features.build(should_dump=True)
+            self._other_features.build(should_dump=should_dump)
             self._logger.info(str(datetime.datetime.now()) + " , Calculated features")
 
     @property
@@ -230,8 +232,8 @@ if __name__ == "__main__":
     #              "attractor_basin", "flow"]
     feats = ["louvain", "eigenvector_centrality", "clustering_coefficient"]
 
-    ftr_calc = FeatureCalculator("edges.txt", os.path.join("try"),
-                                 features=feats, acc=False,
+    ftr_calc = FeatureCalculator("edges.txt", features=feats,
+                                 dir_path=os.path.join("try"), acc=False,
                                  directed=False, gpu=False, verbose=True)
 
     ftr_calc.calculate_features()

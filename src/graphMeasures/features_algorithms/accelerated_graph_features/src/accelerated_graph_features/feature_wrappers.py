@@ -11,7 +11,7 @@ from .feature_wrapper_decorator import FeatureWrapper
 @FeatureWrapper
 def example_feature(graph, **kargs):
     # example_feature is a C++ function exposed to python
-    import ._features as feat
+    from . import _features as feat
 
     print(graph['indices'])
     print(graph['neighbors'])
@@ -25,7 +25,7 @@ def example_feature(graph, **kargs):
 
 @FeatureWrapper
 def clustering_coefficient(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     res = feat.clustering_coefficient(graph)
 
@@ -34,7 +34,7 @@ def clustering_coefficient(graph, **kwargs):
 
 @FeatureWrapper
 def k_core(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     res = feat.k_core(graph)
 
@@ -43,7 +43,7 @@ def k_core(graph, **kwargs):
 
 @FeatureWrapper
 def node_page_rank(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     dumping = kwargs.get('dumping', 0.85)
     max_iter = kwargs.get('max_iters', 100)
@@ -55,7 +55,7 @@ def node_page_rank(graph, **kwargs):
 
 @FeatureWrapper
 def bfs_moments(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     res = feat.bfs_moments(graph)
 
@@ -64,7 +64,7 @@ def bfs_moments(graph, **kwargs):
 
 @FeatureWrapper
 def attraction_basin(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     alpha = kwargs.get('alpha', 2)
     res = feat.attraction_basin(graph, alpha)
@@ -76,7 +76,7 @@ def attraction_basin(graph, **kwargs):
 
 @FeatureWrapper
 def flow(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     t = kwargs.get('threshold', 0)
     res = feat.flow(graph, t)
@@ -86,7 +86,7 @@ def flow(graph, **kwargs):
 
 @FeatureWrapper
 def motif(graph, **kwargs):
-    import ._features as feat
+    from . import _features as feat
 
     try:
         level = kwargs['level']

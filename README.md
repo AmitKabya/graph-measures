@@ -9,7 +9,7 @@ a code for calculating 3- and 4-motifs using VDMC, a distributed algorithm to ca
 GPU-parallelized way.
 
 ## Versions
-- Last version: 0.1.38
+- Last version: 0.1.43
 - Last stable version: 0.1.22
 
 ## What Features Can Be Calculated Here?
@@ -39,8 +39,8 @@ in its community)
 * All pairs shortest path length
 * All pairs shortest path
 
-Aside from those, there are some other [edge features](src/graphMeasures/features_algorithms/edges).
-Some more information regarding the features can be found in the files of [features_meta](src/graphMeasures/features_meta).
+Aside from those, there are some other [edge features](https://github.com/AmitKabya/graph-measures/tree/master/src/graphMeasures/features_algorithms/edges).
+Some more information regarding the features can be found in the files of [features_meta](https://github.com/AmitKabya/graph-measures/blob/master/src/graphMeasures/features_meta).
 
 ## Dependencies
 ```requirements.txt
@@ -73,10 +73,10 @@ import graphMeasures
 ## Calculating Features
 
 There are two main methods to calculate features:
-1. Using [FeatureCalculator](src/graphMeasures/features_for_any_graph.py/FeatureCalculator) (**recommended**): \
+1. Using [FeatureCalculator](https://github.com/AmitKabya/graph-measures/blob/master/src/graphMeasures/features_for_any_graph.py) (**recommended**): \
 A class for calculating any requested features on a given graph. \
 The graph is input to this class as a text-like file of edges, with a comma delimiter, or a networkx _Graph_ object. 
-For example, the graph [example_graph.txt](src/graphMeasures/measure_tests/example_graph.txt) is the following file: 
+For example, the graph [example_graph.txt](https://github.com/AmitKabya/graph-measures/blob/master/src/graphMeasures/measure_tests/example_graph.txt) is the following file: 
     ```
     0,1
     0,2
@@ -87,17 +87,22 @@ For example, the graph [example_graph.txt](src/graphMeasures/measure_tests/examp
     ```python
    import os
    from graphMeasures import FeatureCalculator
-   feats = ["motif3", "louvain"]  # Any set of features
-   path = os.path.join("measure_tests", "example_graph.txt") 
-   head = "" # The path in which one would like to keep the pickled features calculated in the process. 
+   # set of features to be calculated
+   feats = ["motif3", "louvain"]
+   # path to the graph's edgelist or nx.Graph object
+   graph = os.path.join("measure_tests", "example_graph.txt")
+   # The path in which one would like to save the pickled features calculated in the process. 
+   dir_path = "" 
    # More options are shown here. For infomation about them, refer to the file.
-   ftr_calc = FeatureCalculator(path, head, feats, acc=True, directed=False, gpu=True, device=0, verbose=True)
+   ftr_calc = FeatureCalculator(path, feats, dir_path=dir_path, acc=True, directed=False, gpu=True, device=0, verbose=True)
+   # calculate the features. If one do not want the features to be saved,
+   # one should set the parameter 'should_dump' to False (set to True by default).
    ftr_calc.calculate_features()
    mx = ftr_calc.feature_matrix
     ``` 
-    More information can be found in [features_for_any_graph.py](src/graphMeasures/features_for_any_graph.py).\
-    **Note:** If one set `acc=True` without using a Linux+Conda machine, an exception will be thrown.\
-     **Note:** If one set `gpu=True` without using a Linux+Conda machine that has cuda available on it, an exception will be thrown.
+   More information can be found in [features_for_any_graph.py](https://github.com/AmitKabya/graph-measures/blob/master/src/graphMeasures/features_for_any_graph.py). \
+   **Note:** If one set `acc=True` without using a Linux+Conda machine, an exception will be thrown.\
+   **Note:** If one set `gpu=True` without using a Linux+Conda machine that has cuda available on it, an exception will be thrown.
 2. By the calculations as below **(less recommended)**: \
 The calculations require an input graph in NetworkX format, later referred as gnx, and a logger.
 For this example, we build a gnx and define a logger:
@@ -131,13 +136,13 @@ For this example, we build a gnx and define a logger:
     ```python
    import numpy as np
    from graphMeasures.features_infra.graph_features import GraphFeatures
-    
+   from graphMeasures.features_infra.feature_calculators import FeatureMeta
    from graphMeasures.features_algorithms.vertices.louvain import LouvainCalculator
    from graphMeasures.features_algorithms.vertices.betweenness_centrality import BetweennessCentralityCalculator
     
    features_meta = {
        "louvain": FeatureMeta(LouvainCalculator, {"lov"}),
-      "betweenness_centrality": FeatureMeta(BetweennessCentralityCalculator, {"betweenness"}),
+       "betweenness_centrality": FeatureMeta(BetweennessCentralityCalculator, {"betweenness"}),
    }  # Hold the set of features as written here. 
     
    features = GraphFeatures(gnx, features_meta, logger=logger) 
@@ -145,3 +150,19 @@ For this example, we build a gnx and define a logger:
     
    mx = features.to_matrix(mtype=np.matrix)
     ```
+   
+   **Note:** All the keys-values options that can be set in the `features_meta` variable can be found
+   in `graphMeasures.features_meta` or `graphMeasures.accelerated_features_meta`
+   ```python
+   from graphMeasures.features_meta import FeaturesMeta
+   # if one uses the accelerated calculation:
+   # from graphMeasures.accelerated_features_meta import FeaturesMeta
+   all_possible_features_meta = FeaturesMeta().NODE_LEVEL
+   
+   # all possible features
+   print(all_possible_features_meta.keys())   
+   # get the value for louvain
+   louvain = all_possible_features_meta['louvain']   
+   # get the value for betweenness_centrality
+   betweenness_centrality = all_possible_features_meta['betweenness_centrality']
+   ```
