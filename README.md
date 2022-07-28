@@ -45,7 +45,7 @@ Some more information regarding the features can be found in the files of [featu
 ## Dependencies
 ```requirements.txt
 setuptools
-networkx
+networkx==2.6.3
 pandas
 numpy
 matplotlib
@@ -56,6 +56,18 @@ bitstring
 future
 torch
 ```
+
+## How To Use The Accelerated Version (CPU/GPU)?
+Both versions currently are not supported with the pip installation. To use the accelerated version follow the next steps:
+1. Go to the [package's GitHub website](https://github.com/AmitKabya/graph-measures) and manually download:
+
+   - The directory `graphMeasures`.
+   - The python file `runMakefileACC.py`.
+
+   *You might need to download a zip of the repository and extract the necessary files.*
+2. Place both the file and the directory inside your project, and run `runMakefileACC.py`.
+3. Move to the *boost environment*: `conda activate boost` (The environment was created in step 2).
+4. Use the package as explained in the section `How To Use?`
 
 ## Installation Through pip
 The full functionality of the package is currently available on a Linux machine, with a Conda environment.

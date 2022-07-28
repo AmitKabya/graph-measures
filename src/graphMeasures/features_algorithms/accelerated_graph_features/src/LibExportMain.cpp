@@ -33,7 +33,7 @@ void test_export(){
 	std::cout << "Hello Test!"<<std::endl;
 }
 
-BOOST_PYTHON_MODULE(features)
+BOOST_PYTHON_MODULE(_features)
 {
 
 	def("test",test_export);
