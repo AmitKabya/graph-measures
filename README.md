@@ -58,7 +58,8 @@ torch
 ```
 
 ## How To Use The Accelerated Version (CPU/GPU)?
-Both versions currently are not supported with the pip installation. To use the accelerated version follow the next steps:
+Both versions currently are not supported with the pip installation. \
+To use the accelerated version, one must use <b>*Linux* operation system</b> and <b>*Anaconda* distribution</b>, with the follow the next steps:
 1. Go to the [package's GitHub website](https://github.com/AmitKabya/graph-measures) and manually download:
 
    - The directory `graphMeasures`.
