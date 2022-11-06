@@ -38,6 +38,7 @@ class GraphFeatures(dict):
         self._base_dir = dir_path
         self._logger = EmptyLogger() if logger is None else logger
         self._matrix = None
+        self._is_build = False
 
         if is_max_connected:
             if gnx.is_directed():
@@ -57,6 +58,10 @@ class GraphFeatures(dict):
     @property
     def graph(self):
         return self._gnx
+
+    @property
+    def is_build(self):
+        return self._is_build
 
     def _build_serially(self, include, force_build: bool = False, dump_path: str = None, dumping_specs: dict = None):
         if dump_path is not None and self._gnx is not None:
@@ -83,7 +88,9 @@ class GraphFeatures(dict):
                 dump_path = self._base_dir
                 if not os.path.exists(dump_path):
                     os.makedirs(dump_path)
-            return self._build_serially(include, dump_path=dump_path, force_build=force_build, dumping_specs=dumping_specs)
+            self._build_serially(include, dump_path=dump_path, force_build=force_build, dumping_specs=dumping_specs)
+            self._is_build = True
+            return
 
         request_queue = Queue()
         workers = [Worker(request_queue, self, include, logger=self._logger) for _ in range(num_processes)]
